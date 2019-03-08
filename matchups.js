@@ -1,8 +1,14 @@
 function displayMatchups() {
   var inputtedText = document.getElementById('roundInput').value;
 
-  var reg = /\[B\].+\[\/B\]/g;
-  var winners = inputtedText.match(reg);
+  var userlessText = inputtedText.replace(/\[\/?USER(\=[0-9]*)?\]/g,'').replace(/\n/g,',');
+  console.log(userlessText);
+  var findBolds = /\[B\].+?\[\/B\]/g;
+  var boldList = userlessText.match(findBolds);
+  console.log(winnerList);
+  var winnerList = boldList.join(',');
+  var winners = winnerList.split(',');
+  console.log(winners);
 
   if(!winners) {
     document.getElementById('outputArea').innerText = 'Could not find any winners.';
@@ -10,7 +16,11 @@ function displayMatchups() {
 
   var nextRound = '';
   for(var i = 0; i<winners.length; i+=2) {
-    var nextMatchup = '@' + winners[i].slice(3,-4) + ' vs @' + winners[i+1].slice(3,-4) + '\n';
+    if(!winners[i+1]) {
+      nextMatchup = '@' + winners[i].replace(/\[\/?B\]/g,'').trim() + ' vs bye';
+    } else {
+      var nextMatchup = '@' + winners[i].replace(/\[\/?B\]/g,'').trim() + ' vs @' + winners[i+1].replace(/\[\/?B\]/g,'').trim() + '\n';
+    }
     console.log(nextMatchup);
     nextRound += nextMatchup;
   }
