@@ -2,36 +2,33 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Smogon Matchup Assist Tool</title>
-    <style type="text/css">
-      div {
-        padding: 0px;
-      }
-      p {
-        margin: 0px;
-      }
-    </style>
+    <title>Urshifu Quiz</title>
+    <link rel="stylesheet" type = "text/css" media="all" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   </head>
   <body>
     <center>
-      <h1>Smogon Matchup Assist Tool</h1>
-    </center>
-    <hr>
-    <div style="display: flex; flex-direction: row;">
-      <div style="flex-grow: 1; flex-basis: 0;">
-        <h3>Paste your BBCode here</h3>
-        <textarea id="roundInput" rows="25" style="width:95%" required></textarea>
-        <div>
-          <input onclick="displayMatchups()" type="button" value="Generate">
+    <div id="gamearea" style="width: 500px; height: 600px;">
+      <div id="upperarea" style="width:500px; height: 100px; background-color: black; text-align: center;">
+        <span><h1 style="color: white;"> URSHIFU QUIZ </h1></span>
+      </div>
+      <div id="middlearea" style="width:500px; height: 240px;">
+        <div id="rapid" style="width:180px; height: 240px; vertical-align: top; display: inline-block;" onclick="selectRapid()">
+          <img src="./images/rapid.png" style="width:180px; background-color:dodgerblue">
+        </div><div id="centerarea" style="width:140px; height:240px; background-color:azure; display: inline-block; vertical-align: top;">
+          <h4>All teams are top placing teams in Battle Stadium Singles Series 7!</h4>
+          <h4>See the team and click on the correct Urshifu style that is used on that team!</h4>
+        </div><div id="single" style="width:180px; height: 240px; vertical-align: top; display: inline-block;" onclick="selectSingle()">
+          <img src="./images/single.png" style="width:180px; background-color:darkred">
         </div>
       </div>
-      <div id="outputArea" style="flex-grow: 1; flex-basis: 0; border-left: 2px solid gray; padding-left: 10px; font-size: 16px">
-        <h2>How to Use</h2>
-        <p>After you bolded all the players for the round, go to the BBCode view of the post and copy and paste the entire bracket into the text area to the left. When you click "Generate", it will display the next round matchups here, with the @ tag already set up.</p><br>
+      <div id="bottomarea" style="width:500px; height: 100px; background-color: black; text-align: center;" onclick="startGame()">
+        <span><h1 style="color: white;"> START <h1></span>
       </div>
     </div>
-    <script src="matchups.js"></script>
+    </center>
   </body>
+  <script src="./quiz.js"></script>
+  <script src="./teams.js"></script>
 </html>
