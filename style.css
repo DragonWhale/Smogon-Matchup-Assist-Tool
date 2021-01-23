@@ -991,14 +991,14 @@ td {
 h1 {
   margin: 0px;
   padding: 20px 0;
-  font-size: 3em;
+  font-size: 2em;
 }
 
 h5 {
   margin: 0px;
   padding: 5px;
   color: white;
-  font-size: 1em;
+  font-size: 0.8em;
 }
 
 h6 {
@@ -1008,7 +1008,7 @@ h6 {
 
 body {
   margin: 0px;
-  font: 12px Verdana;
+  font: 20px Verdana;
 }
 
 div {
